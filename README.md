@@ -27,13 +27,8 @@ justfile版:
 研究git三大对象代码片段集合
 仅支持单文件
 
-echo "hello" > hello.txt
-
-echo "world" >> hello.txt
-
-git config --global user.email "techzealot@foxmail.com"
-
-git config --global user.name "techzealot"
+测试;
+just test
 
 
 support os:
