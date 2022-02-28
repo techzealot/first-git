@@ -27,7 +27,8 @@ justfile版:
 研究git三大对象代码片段集合
 仅支持单文件
 
-测试;
+测试:
+
 just test
 
 
