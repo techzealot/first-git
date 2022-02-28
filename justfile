@@ -84,13 +84,6 @@ commit message treeHash parentHash='':
     just store $contentFile
     rm $contentFile
 
-# 比较文件工作区与本地仓库的差异 [file]需要比较差异的目标文件
-diff file:
-    #!/usr/bin/env bash
-    set -e    
-    unpigz 
-    diff {{file}}
-
 # 查看commit的十六进制内容 [ref] commit hash,支持HEAD相关写法,默认为HEAD(当前提交)
 cat-commit ref='HEAD':
     #!/usr/bin/env bash
