@@ -2,7 +2,7 @@
 # 获取git提交时的用户名和邮箱
 user :="techzealot"
 email :="techzealot@foxmail.com"
-db_dir:="./db/objects"
+db_dir:="just"
 git_dir:="git"
 git_alias:="git --git-dir=./git --work-tree=./"
 export GIT_WORK_TREE:="./"
@@ -11,7 +11,7 @@ export GIT_DIR:="git"
 # 删除临时文件
 clean:
     -rm *.tmp tmp
-    -rm -rf db git
+    -rm -rf {{db_dir}} {{git_dir}}
 
 # 输出文件字节数 [file] 目标文件
 length file:
@@ -37,14 +37,14 @@ store contentFile:
     contentFile={{contentFile}}
     hash=`openssl sha1 $contentFile|awk '{print $2}'|xargs echo -n`
     echo "$hash"
-    mkdir -p {{db_dir}}/${hash:0:2}
-    dbFile={{db_dir}}/${hash:0:2}/${hash:2}
+    mkdir -p {{db_dir}}/objects/${hash:0:2}
+    dbFile={{db_dir}}/objects/${hash:0:2}/${hash:2}
     # 判断object已存在
     if [[ -f "$dbFile" ]]; then
     exit 0
     fi
     pigz -z --fast < $contentFile > $dbFile
-    objectFile=git/objects/${hash:0:2}/${hash:2}
+    objectFile={{git_dir}}/objects/${hash:0:2}/${hash:2}
     cmp $dbFile $objectFile
 
 # 创建tree对象 [file] tree对象关联的文件名 [blobHash] blob对象的hash
