@@ -24,6 +24,8 @@ RUN set -x \
       git  \
       hexyl \
       pigz \
+      strace \
+      inotify-tools \
       curl \
       net-tools  \
       lsof  \
