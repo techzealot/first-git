@@ -165,7 +165,7 @@ MOUNT_DIR:=`pwd`
 
 SSHD_PORT:="22222"
 
-DESTINATION:="/home/deploy/mini-git"
+DESTINATION:="/home/deploy/projects/mini-git"
 
 # 进入开发环境镜像,并将当前目录挂载到/mnt目录下
 exec-ubuntu:
